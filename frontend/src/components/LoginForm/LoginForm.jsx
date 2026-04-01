@@ -71,7 +71,7 @@ const LoginForm = ({ onSuccess }) => {
       login({ name: values.email.split('@')[0], email: values.email });
       navigate('/dashboard');
     }
-  }, [successMessage]);
+  }, [successMessage]); // eslint-disable-line
 
   const onSubmit = async (formValues) => {
     if (formValues.rememberMe) {

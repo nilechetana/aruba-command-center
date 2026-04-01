@@ -79,10 +79,11 @@ const SignupForm = ({ onSuccess }) => {
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } = useForm(INITIAL_VALUES, validateSignupForm);
   const { loading, successMessage, errorMessage, submitRegister } = useAuth();
 
-  // Notify parent of success; onSuccess ref avoids stale closure on re-renders
   useEffect(() => {
-    if (successMessage && onSuccess) onSuccess(successMessage);
-  }, [successMessage, onSuccess]);
+    if (successMessage && onSuccess) {
+      onSuccess(successMessage);
+    }
+  }, [successMessage]);
 
   const onSubmit = async (formValues) => {
     await submitRegister(formValues.name, formValues.email, formValues.phone, formValues.password);

@@ -22,6 +22,7 @@ const AuthCard = () => {
 
   const handleSuccess = (message) => {
     setSuccessBanner(message);
+    setActiveTab('login');
     setTimeout(() => setSuccessBanner(''), 4000);
   };
 
